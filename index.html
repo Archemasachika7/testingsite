@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeConclave - Competitive Programming Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Parallax Container -->
+    <div class="parallax-container">
+        <div class="parallax-bg" id="parallax-bg"></div>
+        
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <h1>Code<span class="gradient-text">Conclave</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#challenges">Challenges</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#competitors">Competitors</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                <button id="login-btn" class="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <button id="mobile-menu-close" class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+                <li><a href="#competitors">Competitors</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <div class="mobile-actions">
+                <button id="mobile-login-btn" class="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Where <span class="gradient-text">Coders</span> Unite, Compete, and Grow</h1>
+                <p>Join our vibrant community of competitive programmers, solve challenging problems, and climb the ranks to showcase your coding prowess.</p>
+                <div class="hero-buttons">
+                    <button class="primary-btn">
+                        <i class="fas fa-code"></i>
+                        Start Coding
+                    </button>
+                    <button class="secondary-btn">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="https://via.placeholder.com/500x400" alt="Coding Illustration">
+            </div>
+        </section>
+    </div>
+    
+    <!-- Challenges Section -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Coding <span class="gradient-text">Challenges</span></h2>
+                <p>Test your skills with our curated collection of algorithmic problems ranging from beginner to advanced levels.</p>
+            </div>
+            
+            <div class="challenges-grid">
+                <div class="challenge-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="challenge-header">
+                        <span class="challenge-difficulty easy">Easy</span>
+                        <span class="challenge-points">100 pts</span>
+                    </div>
+                    <h3>Two Sum Problem</h3>
+                    <p>Find two numbers in an array that add up to a specific target.</p>
+                    <div class="challenge-meta">
+                        <span><i class="fas fa-code"></i> Arrays</span>
+                        <span><i class="fas fa-users"></i> 1.2k solved</span>
+                    </div>
+                    <a href="#" class="challenge-link">Solve Challenge <span>&rarr;</span></a>
+                </div>
+                
+                <div class="challenge-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="challenge-header">
+                        <span class="challenge-difficulty medium">Medium</span>
+                        <span class="challenge-points">250 pts</span>
+                    </div>
+                    <h3>Longest Substring</h3>
+                    <p>Find the length of the longest substring without repeating characters.</p>
+                    <div class="challenge-meta">
+                        <span><i class="fas fa-code"></i> Strings</span>
+                        <span><i class="fas fa-users"></i> 856 solved</span>
+                    </div>
+                    <a href="#" class="challenge-link">Solve Challenge <span>&rarr;</span></a>
+                </div>
+                
+                <div class="challenge-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="challenge-header">
+                        <span class="challenge-difficulty hard">Hard</span>
+                        <span class="challenge-points">500 pts</span>
+                    </div>
+                    <h3>Merge K Sorted Lists</h3>
+                    <p>Merge k sorted linked lists into one sorted linked list.</p>
+                    <div class="challenge-meta">
+                        <span><i class="fas fa-code"></i> Linked Lists</span>
+                        <span><i class="fas fa-users"></i> 432 solved</span>
+                    </div>
+                    <a href="#" class="challenge-link">Solve Challenge <span>&rarr;</span></a>
+                </div>
+                
+                <div class="challenge-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="challenge-header">
+                        <span class="challenge-difficulty medium">Medium</span>
+                        <span class="challenge-points">300 pts</span>
+                    </div>
+                    <h3>Binary Tree Level Order</h3>
+                    <p>Return the level order traversal of a binary tree's values.</p>
+                    <div class="challenge-meta">
+                        <span><i class="fas fa-code"></i> Trees</span>
+                        <span><i class="fas fa-users"></i> 723 solved</span>
+                    </div>
+                    <a href="#" class="challenge-link">Solve Challenge <span>&rarr;</span></a>
+                </div>
+            </div>
+            
+            <div class="challenges-footer" data-aos="fade-up">
+                <button class="primary-btn">
+                    <i class="fas fa-th-list"></i>
+                    View All Challenges
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Global <span class="gradient-text">Leaderboard</span></h2>
+                <p>See how you stack up against the best competitive programmers in our community.</p>
+            </div>
+            
+            <div class="leaderboard-container" data-aos="fade-up">
+                <div class="leaderboard-filters">
+                    <div class="filter-group">
+                        <label>Time Period:</label>
+                        <select id="time-filter">
+                            <option value="weekly">This Week</option>
+                            <option value="monthly" selected>This Month</option>
+                            <option value="alltime">All Time</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <select id="category-filter">
+                            <option value="all" selected>All Categories</option>
+                            <option value="algorithms">Algorithms</option>
+                            <option value="datastructures">Data Structures</option>
+                            <option value="math">Mathematics</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-table-container">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>User</th>
+                                <th>Solved</th>
+                                <th>Points</th>
+                                <th>Accuracy</th>
+                                <th>Streak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="top-rank">
+                                <td class="rank">1</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">CodeMaster</span>
+                                        <span class="level">Level 42</span>
+                                    </div>
+                                </td>
+                                <td>187</td>
+                                <td>15,420</td>
+                                <td>98.2%</td>
+                                <td>42 days</td>
+                            </tr>
+                            <tr class="top-rank">
+                                <td class="rank">2</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">AlgoNinja</span>
+                                        <span class="level">Level 39</span>
+                                    </div>
+                                </td>
+                                <td>175</td>
+                                <td>14,830</td>
+                                <td>97.5%</td>
+                                <td>38 days</td>
+                            </tr>
+                            <tr class="top-rank">
+                                <td class="rank">3</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">ByteWizard</span>
+                                        <span class="level">Level 37</span>
+                                    </div>
+                                </td>
+                                <td>168</td>
+                                <td>13,950</td>
+                                <td>96.8%</td>
+                                <td>35 days</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">4</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">DataDragon</span>
+                                        <span class="level">Level 35</span>
+                                    </div>
+                                </td>
+                                <td>159</td>
+                                <td>12,780</td>
+                                <td>95.3%</td>
+                                <td>29 days</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">5</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">LogicLegend</span>
+                                        <span class="level">Level 33</span>
+                                    </div>
+                                </td>
+                                <td>152</td>
+                                <td>11,920</td>
+                                <td>94.7%</td>
+                                <td>26 days</td>
+                            </tr>
+                            <tr class="current-user">
+                                <td class="rank">28</td>
+                                <td class="user">
+                                    <img src="https://via.placeholder.com/40" alt="User Avatar">
+                                    <div>
+                                        <span class="username">You</span>
+                                        <span class="level">Level 18</span>
+                                    </div>
+                                </td>
+                                <td>87</td>
+                                <td>6,340</td>
+                                <td>89.2%</td>
+                                <td>12 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="leaderboard-pagination">
+                    <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                    <span class="pagination-current">1</span>
+                    <span>of</span>
+                    <span class="pagination-total">10</span>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Competitors Section -->
+    <section id="competitors" class="competitors">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Top <span class="gradient-text">Competitors</span></h2>
+                <p>Meet the coding champions who consistently excel in our challenges and competitions.</p>
+            </div>
+            
+            <div class="competitors-grid">
+                <div class="flip-card" data-aos="flip-left">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://via.placeholder.com/150" alt="Competitor Avatar">
+                            <h3>Alex Johnson</h3>
+                            <p>Backend Development Specialist</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Alex Johnson</h3>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Problem Solving</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Algorithm Efficiency</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Data Structures</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Won 15 coding competitions<br>187 challenges completed<br>42-day streak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://via.placeholder.com/150" alt="Competitor Avatar">
+                            <h3>Samantha Lee</h3>
+                            <p>Frontend Development Expert</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Samantha Lee</h3>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Problem Solving</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Algorithm Efficiency</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Data Structures</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 93%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Created 30+ web applications<br>175 challenges completed<br>38-day streak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://via.placeholder.com/150" alt="Competitor Avatar">
+                            <h3>Michael Chen</h3>
+                            <p>Data Science Specialist</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Michael Chen</h3>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Problem Solving</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Algorithm Efficiency</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 94%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Data Structures</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 91%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Published 5 research papers<br>168 challenges completed<br>35-day streak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://via.placeholder.com/150" alt="Competitor Avatar">
+                            <h3>Olivia Martinez</h3>
+                            <p>Full-Stack Developer</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Olivia Martinez</h3>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Problem Solving</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 89%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Algorithm Efficiency</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 87%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <span>Data Structures</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Contributed to 15+ open source projects<br>159 challenges completed<br>29-day streak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Coding <span class="gradient-text">Resources</span></h2>
+                <p>Explore our curated collection of learning materials, libraries, and tools to enhance your competitive programming skills.</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resource-icon">
+                        <span><i class="fas fa-book"></i></span>
+                    </div>
+                    <h3>Algorithm Guides</h3>
+                    <p>Comprehensive guides on essential algorithms for competitive programming, from sorting to graph algorithms.</p>
+                    <a href="#" class="resource-link">Explore Guides <span>&rarr;</span></a>
+                </div>
+                
+                <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resource-icon">
+                        <span><i class="fas fa-code"></i></span>
+                    </div>
+                    <h3>Code Libraries</h3>
+                    <p>Ready-to-use implementations of common algorithms and data structures to speed up your coding process.</p>
+                    <a href="#" class="resource-link">Browse Libraries <span>&rarr;</span></a>
+                </div>
+                
+                <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="resource-icon">
+                        <span><i class="fas fa-video"></i></span>
+                    </div>
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step video explanations of complex problems and efficient solution approaches.</p>
+                    <a href="#" class="resource-link">Watch Tutorials <span>&rarr;</span></a>
+                </div>
+                
+                <div class="resource-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="resource-icon">
+                        <span><i class="fas fa-users"></i></span>
+                    </div>
+                    <h3>Community Forums</h3>
+                    <p>Connect with fellow programmers, ask questions, and share insights on problem-solving strategies.</p>
+                    <a href="#" class="resource-link">Join Discussions <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Code<span class="gradient-text">Conclave</span></h2>
+                <p>A community where coders unite, compete, and grow together.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#leaderboard">Leaderboard</a></li>
+                        <li><a href="#competitors">Competitors</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Code of Conduct</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodeConclave. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <button type="submit" class="primary-btn">Login</button>
+                <div class="form-footer">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </form>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="primary-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

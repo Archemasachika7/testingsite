@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahjin Code Conclave - Where Coders Unite</title>
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="landing-wrapper">
+    <!-- Stars Background -->
+    <div class="stars-container"></div>
+
+    <!-- Animated Background with Parallax -->
+    <div class="animated-bg">
+      <div class="parallax-layer layer-1"></div>
+      <div class="parallax-layer layer-2"></div>
+      <div class="parallax-layer layer-3"></div>
+      <div class="code-particles"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <h1>Ahjin<span class="gradient-text">CodeConclave</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-sun sun-icon"></i>
+          <i class="fas fa-moon moon-icon"></i>
+        </button>
+        <button id="login-btn" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </button>
+      </div>
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <button id="mobile-menu-close" class="mobile-menu-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="mobile-actions">
+        <button id="mobile-login-btn" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Section with Parallax -->
+    <section class="hero parallax-section">
+      <div class="hero-content">
+        <h1 class="parallax-element" data-speed="0.2">Elevate Your <span class="gradient-text">Coding</span> Journey</h1>
+        <p class="parallax-element" data-speed="0.3">Join thousands of developers in Ahjin Code Conclave, where algorithmic challenges, competitive programming, and community support converge to accelerate your growth.</p>
+        <div class="hero-cta parallax-element" data-speed="0.4">
+          <button id="register-btn" class="primary-btn">
+            <i class="fas fa-rocket"></i>
+            Get Started For Free
+          </button>
+          <button id="demo-btn" class="secondary-btn">
+            <i class="fas fa-play-circle"></i>
+            Watch Demo
+          </button>
+        </div>
+        <div class="hero-stats parallax-element" data-speed="0.5">
+          <div class="stat">
+            <span class="stat-number">10,000+</span>
+            <span class="stat-label">Active Coders</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Challenges</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Growth Rate</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-preview parallax-element" data-speed="-0.2">
+        <div class="preview-window">
+          <div class="window-header">
+            <div class="window-controls">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="window-title">CodeConclave Challenge</div>
+          </div>
+          <div class="window-content">
+            <pre><code class="language-javascript">
+function solveProblem(array, target) {
+  const map = new Map();
+  
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+    
+    if (map.has(complement)) {
+      return [map.get(complement), i];
+    }
+    
+    map.set(array[i], i);
+  }
+  
+  return null;
+}
+
+// Test with sample input
+const result = solveProblem([2, 7, 11, 15], 9);
+console.log(`Solution: [${result}]`);
+                        </code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section with 6 Cards -->
+    <section id="features" class="features parallax-section">
+      <div class="section-header parallax-element" data-speed="0.1">
+        <h2>Why Join <span class="gradient-text">Ahjin Code Conclave</span>?</h2>
+        <p>Our platform offers unique features designed to enhance your coding skills and connect you with like-minded developers.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card parallax-element" data-speed="0.15">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Algorithmic Challenges</h3>
+          <p>Access a vast library of coding problems ranging from beginner to expert level, with detailed explanations and optimal solutions.</p>
+        </div>
+
+        <div class="feature-card parallax-element" data-speed="0.2">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Competitive Rankings</h3>
+          <p>Compete globally and track your progress on our real-time leaderboards. Earn badges and climb the ranks as you solve more challenges.</p>
+        </div>
+
+        <div class="feature-card parallax-element" data-speed="0.25">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Vibrant Community</h3>
+          <p>Connect with fellow programmers, participate in discussions, and collaborate on projects in a supportive environment.</p>
+        </div>
+
+        <div class="feature-card parallax-element" data-speed="0.15">
+          <div class="feature-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Learning Resources</h3>
+          <p>Access curated tutorials, articles, and video lessons on algorithms, data structures, and programming concepts.</p>
+        </div>
+
+        <div class="feature-card parallax-element" data-speed="0.2">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Interactive Coding</h3>
+          <p>Write, test, and debug your code in our feature-rich online IDE that supports over 30 programming languages.</p>
+        </div>
+
+        <div class="feature-card parallax-element" data-speed="0.25">
+          <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Skill Certification</h3>
+          <p>Earn certificates by completing challenge tracks and showcase your verified coding skills to potential employers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Preview Section -->
+    <section class="preview-section parallax-section">
+      <div class="preview-content parallax-element" data-speed="0.2">
+        <h2>Experience the <span class="gradient-text">Platform</span></h2>
+        <p>Get a taste of our interactive coding environment, real-time feedback system, and collaborative features.</p>
+        <div class="preview-features">
+          <div class="preview-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Syntax highlighting for 30+ languages</span>
+          </div>
+          <div class="preview-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Real-time code execution and testing</span>
+          </div>
+          <div class="preview-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Performance metrics and optimization tips</span>
+          </div>
+          <div class="preview-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Peer code reviews and feedback</span>
+          </div>
+        </div>
+        <button class="primary-btn try-btn">
+          <i class="fas fa-laptop-code"></i>
+          Try Interactive Demo
+        </button>
+      </div>
+      <div class="preview-tabs parallax-element" data-speed="-0.1">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="editor">Code Editor</button>
+          <button class="tab-btn" data-tab="challenges">Challenges</button>
+          <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+        </div>
+        <div class="tabs-content">
+          <div class="tab-pane active" id="editor-tab">
+            <img src="https://via.placeholder.com/500x300" alt="Code Editor Preview">
+          </div>
+          <div class="tab-pane" id="challenges-tab">
+            <img src="https://via.placeholder.com/500x300" alt="Challenges Preview">
+          </div>
+          <div class="tab-pane" id="leaderboard-tab">
+            <img src="https://via.placeholder.com/500x300" alt="Leaderboard Preview">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Global Community Section -->
+    <section id="community" class="community parallax-section">
+      <div class="section-header parallax-element" data-speed="0.1">
+        <h2>Join Our Global <span class="gradient-text">Community</span></h2>
+        <p>Connect with developers from around the world, share knowledge, and grow together.</p>
+      </div>
+
+      <div class="global-impact-container parallax-element" data-speed="0.15">
+        <div class="globe-container">
+          <div id="globe-canvas"></div>
+          <div class="globe-overlay"></div>
+
+          <!-- Code Blocks that travel across the globe -->
+          <div class="code-block-container">
+            <div class="code-block code-block-1">
+              <pre><code>function solve() { }</code></pre>
+            </div>
+            <div class="code-block code-block-2">
+              <pre><code>if (map.has(key)) { }</code></pre>
+            </div>
+            <div class="code-block code-block-3">
+              <pre><code>return array.sort();</code></pre>
+            </div>
+          </div>
+
+          <!-- Connection lines between regions -->
+          <div class="connections-container"></div>
+        </div>
+
+        <div class="community-stats">
+          <div class="community-stat">
+            <div class="stat-icon"><i class="fas fa-globe"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">120+</span>
+              <span class="stat-label">Countries</span>
+            </div>
+          </div>
+          <div class="community-stat">
+            <div class="stat-icon"><i class="fas fa-comments"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Discussions</span>
+            </div>
+          </div>
+          <div class="community-stat">
+            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="stat-info">
+              <span class="stat-number">5K+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-feed">
+          <h3>Live Community Activity</h3>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon"><i class="fas fa-trophy"></i></div>
+              <div class="activity-content">
+                <p><strong>Sarah K.</strong> just solved <span class="highlight">Two Sum</span> challenge</p>
+                <span class="activity-time">2 minutes ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon"><i class="fas fa-code"></i></div>
+              <div class="activity-content">
+                <p><strong>Miguel R.</strong> submitted a solution in <span class="highlight">Python</span></p>
+                <span class="activity-time">5 minutes ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon"><i class="fas fa-users"></i></div>
+              <div class="activity-content">
+                <p><strong>Priya S.</strong> joined from <span class="highlight">India</span></p>
+                <span class="activity-time">10 minutes ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials parallax-section">
+      <div class="section-header parallax-element" data-speed="0.1">
+        <h2>What Our <span class="gradient-text">Members</span> Say</h2>
+        <p>Hear from developers who have accelerated their coding skills with Ahjin Code Conclave.</p>
+      </div>
+
+      <div class="testimonials-slider parallax-element" data-speed="0.2">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Ahjin Code Conclave transformed my approach to problem-solving. The challenges pushed me beyond my comfort zone, and the community support was invaluable. I landed my dream job at Google after 6 months of consistent practice."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Sarah Chen">
+            <div class="author-info">
+              <h4>Sarah Chen</h4>
+              <p>Software Engineer at Google</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The structured learning path and competitive environment kept me motivated. I went from struggling with basic algorithms to confidently tackling complex problems. The platform's feedback system helped me identify and fix my weak areas."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Michael Rodriguez">
+            <div class="author-info">
+              <h4>Michael Rodriguez</h4>
+              <p>Full Stack Developer at Microsoft</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"As a self-taught programmer, I struggled to find structured resources. Ahjin Code Conclave provided exactly what I needed - a roadmap, challenges that progressively increased in difficulty, and a supportive community that answered my questions."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Priya Sharma">
+            <div class="author-info">
+              <h4>Priya Sharma</h4>
+              <p>Backend Developer at Amazon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-controls">
+        <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="testimonial-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies parallax-section">
+      <div class="section-header parallax-element" data-speed="0.1">
+        <h2>Our Members Work At</h2>
+      </div>
+      <div class="companies-logos parallax-element" data-speed="0.2">
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Google">
+        </div>
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Microsoft">
+        </div>
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Amazon">
+        </div>
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Facebook">
+        </div>
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Apple">
+        </div>
+        <div class="company-logo">
+          <img src="https://via.placeholder.com/150x50" alt="Netflix">
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq parallax-section">
+      <div class="section-header parallax-element" data-speed="0.1">
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p>Get answers to common questions about Ahjin Code Conclave.</p>
+      </div>
+
+      <div class="faq-container parallax-element" data-speed="0.2">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is Ahjin Code Conclave free to use?</h3>
+            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, Ahjin Code Conclave offers a free tier with access to 100+ challenges, community forums, and basic learning resources. We also offer premium plans with additional features for those who want to accelerate their learning.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What programming languages are supported?</h3>
+            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="faq-answer">
+            <p>We support over 30 programming languages including Python, JavaScript, Java, C++, Go, Ruby, and more. Our platform provides syntax highlighting, code execution, and language-specific optimizations for all supported languages.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How does the ranking system work?</h3>
+            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="faq-answer">
+            <p>Our ranking system is based on a combination of factors including the number of challenges solved, solution efficiency, code quality, and participation in competitions. Points are awarded for each successful submission, with bonus points for optimal solutions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I use Ahjin Code Conclave to prepare for technical interviews?</h3>
+            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! Many of our members use the platform to prepare for technical interviews. We offer challenges that are commonly asked in interviews at top tech companies, along with detailed explanations and optimal solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta parallax-section">
+      <div class="cta-content parallax-element" data-speed="0.2">
+        <h2>Ready to Level Up Your <span class="gradient-text">Coding Skills</span>?</h2>
+        <p>Join thousands of developers who are already part of the Ahjin Code Conclave community. Start solving challenges, competing with peers, and accelerating your growth today.</p>
+        <div class="cta-buttons">
+          <button id="cta-register-btn" class="primary-btn">
+            <i class="fas fa-rocket"></i>
+            Create Free Account
+          </button>
+          <button id="cta-login-btn" class="secondary-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>
+        </div>
+        <div class="cta-features">
+          <div class="cta-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>No credit card required</span>
+          </div>
+          <div class="cta-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Instant access to 100+ challenges</span>
+          </div>
+          <div class="cta-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Join a community of 10,000+ coders</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
+      <div class="footer-pattern-overlay"></div>
+
+      <div class="footer-top">
+        <div class="footer-container">
+          <div class="footer-newsletter">
+            <h3><span class="gradient-text">Stay Updated</span></h3>
+            <p>Get weekly coding challenges, tutorials, and community updates.</p>
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit" class="primary-btn">
+                  <i class="fas fa-paper-plane"></i>
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <div class="footer-logo">
+                <h2>Ahjin<span class="gradient-text">CodeConclave</span></h2>
+                <p class="tagline">Where coders unite, compete, and grow together.</p>
+              </div>
+              <div class="footer-stats">
+                <div class="footer-stat">
+                  <span class="stat-number">10K+</span>
+                  <span class="stat-label">Developers</span>
+                </div>
+                <div class="footer-stat">
+                  <span class="stat-number">120+</span>
+                  <span class="stat-label">Countries</span>
+                </div>
+                <div class="footer-stat">
+                  <span class="stat-number">500+</span>
+                  <span class="stat-label">Challenges</span>
+                </div>
+              </div>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+
+            <div class="footer-links-container">
+              <div class="footer-links-column">
+                <h3>Platform</h3>
+                <ul class="footer-links">
+                  <li><a href="#">Challenges</a></li>
+                  <li><a href="#">Competitions</a></li>
+                  <li><a href="#">Leaderboard</a></li>
+                  <li><a href="#">Discussion Forums</a></li>
+                  <li><a href="#">Code Review</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-links-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Tutorials</a></li>
+                  <li><a href="#">API Reference</a></li>
+                  <li><a href="#">Algorithms</a></li>
+                  <li><a href="#">Data Structures</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-links-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Press</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-links-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Cookie Policy</a></li>
+                  <li><a href="#">Code of Conduct</a></li>
+                  <li><a href="#">GDPR Compliance</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="footer-bottom-content">
+            <p class="copyright">&copy; 2025 Ahjin Code Conclave. All rights reserved.</p>
+            <div class="footer-bottom-links">
+              <div class="language-selector">
+                <select>
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                  <option value="ja">日本語</option>
+                  <option value="zh">中文</option>
+                </select>
+              </div>
+              <a href="#" class="footer-bottom-link">Sitemap</a>
+              <a href="#" class="footer-bottom-link">Accessibility</a>
+            </div>
+          </div>
+          <div class="footer-code-comment">
+            <span class="code-comment">/* Built with passion by coders, for coders */</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+          <iframe width="560" height="315" src="" title="Platform Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="landing.js"></script>
+</body>
+
+</html>
