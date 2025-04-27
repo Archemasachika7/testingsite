@@ -1,13 +1,13 @@
 // Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCN8q1uF4Ox5drhgQLY3m-oCEt8suSlRfs", // Replace with your actual API key
-    authDomain: "ahjincc.firebaseapp.com",
-    databaseURL: "https://ahjincc-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "ahjincc",
-    storageBucket: "ahjincc.firebasestorage.app",
-    messagingSenderId: "287401404736",
-    appId: "1:287401404736:web:88fbe3b9bf4c4c20ae32a5",
-    measurementId: "G-FLKN369J4M"
+  apiKey: "AIzaSyCN8q1uF4Ox5drhgQLY3m-oCEt8suSlRfs", // Replace with your actual API key
+  authDomain: "ahjincc.firebaseapp.com",
+  databaseURL: "https://ahjincc-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "ahjincc",
+  storageBucket: "ahjincc.firebasestorage.app",
+  messagingSenderId: "287401404736",
+  appId: "1:287401404736:web:88fbe3b9bf4c4c20ae32a5",
+  measurementId: "G-FLKN369J4M"
 };
 
 // Initialize Firebase
@@ -35,8 +35,8 @@ const strengthText = document.querySelector('.strength-text');
 
 // Theme Toggle
 function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
 }
 
 // Check for saved theme
@@ -44,180 +44,181 @@ const savedTheme = localStorage.getItem('theme') || 'light';
 setTheme(savedTheme);
 
 themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
 });
 
 // Auth Tabs
 authTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const tabTarget = tab.getAttribute('data-tab');
-        
-        // Update active tab
-        authTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        // Show corresponding form
-        authForms.forEach(form => form.classList.remove('active'));
-        if (tabTarget === 'login') {
-            loginForm.classList.add('active');
-        } else {
-            registerForm.classList.add('active');
-        }
-    });
+  tab.addEventListener('click', () => {
+    const tabTarget = tab.getAttribute('data-tab');
+    
+    // Update active tab
+    authTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    
+    // Show corresponding form
+    authForms.forEach(form => form.classList.remove('active'));
+    if (tabTarget === 'login') {
+      loginForm.classList.add('active');
+    } else {
+      registerForm.classList.add('active');
+    }
+  });
 });
 
 // Toggle Password Visibility
 togglePasswordBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const input = btn.parentElement.querySelector('input');
-        const icon = btn.querySelector('.material-icons');
-        
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.textContent = 'visibility';
-        } else {
-            input.type = 'password';
-            icon.textContent = 'visibility_off';
-        }
-    });
+  btn.addEventListener('click', () => {
+    const input = btn.parentElement.querySelector('input');
+    const icon = btn.querySelector('.material-icons');
+    
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility_off';
+    }
+  });
 });
 
 // Password Strength Meter
 registerPassword.addEventListener('input', () => {
-    const password = registerPassword.value;
-    const strength = checkPasswordStrength(password);
-    
-    // Reset all segments
+  const password = registerPassword.value;
+  const strength = checkPasswordStrength(password);
+  
+  // Reset all segments
+  strengthSegments.forEach(segment => {
+    segment.className = 'strength-segment';
+  });
+  
+  if (password.length === 0) {
+    strengthText.textContent = 'Password strength';
+    return;
+  }
+  
+  if (strength === 'weak') {
+    strengthSegments[0].classList.add('weak');
+    strengthText.textContent = 'Weak';
+  } else if (strength === 'medium') {
+    strengthSegments[0].classList.add('medium');
+    strengthSegments[1].classList.add('medium');
+    strengthText.textContent = 'Medium';
+  } else if (strength === 'strong') {
+    strengthSegments[0].classList.add('strong');
+    strengthSegments[1].classList.add('strong');
+    strengthSegments[2].classList.add('strong');
+    strengthText.textContent = 'Strong';
+  } else if (strength === 'very-strong') {
     strengthSegments.forEach(segment => {
-        segment.className = 'strength-segment';
+      segment.classList.add('strong');
     });
-    
-    if (password.length === 0) {
-        strengthText.textContent = 'Password strength';
-        return;
-    }
-    
-    if (strength === 'weak') {
-        strengthSegments[0].classList.add('weak');
-        strengthText.textContent = 'Weak';
-    } else if (strength === 'medium') {
-        strengthSegments[0].classList.add('medium');
-        strengthSegments[1].classList.add('medium');
-        strengthText.textContent = 'Medium';
-    } else if (strength === 'strong') {
-        strengthSegments[0].classList.add('strong');
-        strengthSegments[1].classList.add('strong');
-        strengthSegments[2].classList.add('strong');
-        strengthText.textContent = 'Strong';
-    } else if (strength === 'very-strong') {
-        strengthSegments.forEach(segment => {
-            segment.classList.add('strong');
-        });
-        strengthText.textContent = 'Very Strong';
-    }
+    strengthText.textContent = 'Very Strong';
+  }
 });
 
 function checkPasswordStrength(password) {
-    const length = password.length;
-    const hasLowerCase = /[a-z]/.test(password);
-    const hasUpperCase = /[A-Z]/.test(password);
-    const hasNumbers = /\d/.test(password);
-    const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-    const criteria = [hasLowerCase, hasUpperCase, hasNumbers, hasSpecialChars].filter(Boolean).length;
-    
-    if (length < 6) {
-        return 'weak';
-    } else if (length < 8 || criteria < 2) {
-        return 'medium';
-    } else if (length < 10 || criteria < 3) {
-        return 'strong';
-    } else {
-        return 'very-strong';
-    }
+  const length = password.length;
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasNumbers = /\d/.test(password);
+  const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+  
+  const criteria = [hasLowerCase, hasUpperCase, hasNumbers, hasSpecialChars].filter(Boolean).length;
+  
+  if (length < 6) {
+    return 'weak';
+  } else if (length < 8 || criteria < 2) {
+    return 'medium';
+  } else if (length < 10 || criteria < 3) {
+    return 'strong';
+  } else {
+    return 'very-strong';
+  }
 }
 
 // Show Loading
 function showLoading() {
-    loadingOverlay.classList.add('active');
+  loadingOverlay.classList.add('active');
 }
 
 // Hide Loading
 function hideLoading() {
-    loadingOverlay.classList.remove('active');
+  loadingOverlay.classList.remove('active');
 }
 
 // Show Success Modal
 function showSuccessModal(message) {
-    successMessage.textContent = message;
-    successModal.classList.add('active');
-    
-    // Automatically redirect after 2 seconds
-    setTimeout(() => {
-        window.location.href = 'index.html'; // Change to your main page
-    }, 2000);
+  successMessage.textContent = message;
+  successModal.classList.add('active');
+  
+  // Automatically redirect after 2 seconds
+  setTimeout(() => {
+    window.location.href = '/home/';
+  }, 2000);
 }
 
 // Email/Password Login
 loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    try {
-        showLoading();
-        await auth.signInWithEmailAndPassword(email, password);
-        hideLoading();
-        showSuccessModal('You have successfully logged in!');
-    } catch (error) {
-        hideLoading();
-        alert(`Login failed: ${error.message}`);
-    }
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  
+  try {
+    showLoading();
+    await auth.signInWithEmailAndPassword(email, password);
+    hideLoading();
+    showSuccessModal('You have successfully logged in!');
+  } catch (error) {
+    hideLoading();
+    alert(`Login failed: ${error.message}`);
+  }
 });
 
 // Email/Password Registration
 registerForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+  e.preventDefault();
+  const name = document.getElementById('registerName').value;
+  const email = document.getElementById('registerEmail').value;
+  const password = document.getElementById('registerPassword').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+  
+  if (password !== confirmPassword) {
+    alert('Passwords do not match!');
+    return;
+  }
+  
+  try {
+    showLoading();
+    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
     
-    if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-    }
+    // Update profile with name
+    await userCredential.user.updateProfile({
+      displayName: name
+    });
     
-    try {
-        showLoading();
-        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        
-        // Update profile with name
-        await userCredential.user.updateProfile({
-            displayName: name
-        });
-        
-        hideLoading();
-        showSuccessModal('Your account has been created successfully!');
-    } catch (error) {
-        hideLoading();
-        alert(`Registration failed: ${error.message}`);
-    }
+    hideLoading();
+    showSuccessModal('Your account has been created successfully!');
+  } catch (error) {
+    hideLoading();
+    alert(`Registration failed: ${error.message}`);
+  }
 });
 
 // Google Authentication
 async function signInWithGoogle() {
-    try {
-        showLoading();
-        const provider = new firebase.auth.GoogleAuthProvider();
-        await auth.signInWithPopup(provider);
-        hideLoading();
-        showSuccessModal('You have successfully logged in with Google!');
-    } catch (error) {
-        hideLoading();
-        alert(`Google sign-in failed: ${error.message}`);
-    }
+  try {
+    showLoading();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await auth.signInWithPopup(provider);
+    hideLoading();
+    showSuccessModal('You have successfully logged in with Google!');
+  } catch (error) {
+    hideLoading();
+    alert(`Google sign-in failed: ${error.message}`);
+  }
 }
 
 googleLoginBtn.addEventListener('click', signInWithGoogle);
@@ -225,16 +226,16 @@ googleRegisterBtn.addEventListener('click', signInWithGoogle);
 
 // GitHub Authentication
 async function signInWithGithub() {
-    try {
-        showLoading();
-        const provider = new firebase.auth.GithubAuthProvider();
-        await auth.signInWithPopup(provider);
-        hideLoading();
-        showSuccessModal('You have successfully logged in with GitHub!');
-    } catch (error) {
-        hideLoading();
-        alert(`GitHub sign-in failed: ${error.message}`);
-    }
+  try {
+    showLoading();
+    const provider = new firebase.auth.GithubAuthProvider();
+    await auth.signInWithPopup(provider);
+    hideLoading();
+    showSuccessModal('You have successfully logged in with GitHub!');
+  } catch (error) {
+    hideLoading();
+    alert(`GitHub sign-in failed: ${error.message}`);
+  }
 }
 
 githubLoginBtn.addEventListener('click', signInWithGithub);
@@ -242,153 +243,104 @@ githubRegisterBtn.addEventListener('click', signInWithGithub);
 
 // Success Done Button
 successDoneBtn.addEventListener('click', () => {
-    window.location.href = 'index.html'; // Change to your main page
+  window.location.href = '/home/';
 });
 
 // Close Success Modal when clicking outside
 successModal.addEventListener('click', (e) => {
-    if (e.target === successModal) {
-        successModal.classList.remove('active');
-    }
+  if (e.target === successModal) {
+    successModal.classList.remove('active');
+  }
 });
 
 // Create and animate code particles and shooting stars
 function createShootingStar() {
-    const shootingStar = document.createElement('div');
-    shootingStar.className = 'shooting-star';
-    
-    // Random position and angle
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * (window.innerHeight / 2);
-    const angle = 30 + Math.random() * 30; // Between 30 and 60 degrees
-    
-    shootingStar.style.left = `${startX}px`;
-    shootingStar.style.top = `${startY}px`;
-    shootingStar.style.transform = `rotate(${angle}deg)`;
-    
-    // Random size
-    const size = 50 + Math.random() * 100;
-    shootingStar.style.width = `${size}px`;
-    
-    // Random animation duration
-    const duration = 2 + Math.random() * 4;
-    shootingStar.style.animation = `shootingStar ${duration}s ease-in forwards`;
-    
-    document.querySelector('.shooting-stars').appendChild(shootingStar);
-    
-    // Remove after animation completes
-    setTimeout(() => {
-        shootingStar.remove();
-    }, duration * 1000);
+  const shootingStar = document.createElement('div');
+  shootingStar.className = 'shooting-star';
+  
+  // Random position and angle
+  const startX = Math.random() * window.innerWidth;
+  const startY = Math.random() * (window.innerHeight / 2);
+  const angle = 30 + Math.random() * 30; // Between 30 and 60 degrees
+  
+  shootingStar.style.left = `${startX}px`;
+  shootingStar.style.top = `${startY}px`;
+  shootingStar.style.transform = `rotate(${angle}deg)`;
+  
+  // Random size
+  const size = 50 + Math.random() * 100;
+  shootingStar.style.width = `${size}px`;
+  
+  // Random animation duration
+  const duration = 2 + Math.random() * 4;
+  shootingStar.style.animation = `shootingStar ${duration}s ease-in forwards`;
+  
+  document.querySelector('.shooting-stars').appendChild(shootingStar);
+  
+  // Remove after animation completes
+  setTimeout(() => {
+    shootingStar.remove();
+  }, duration * 1000);
 }
 
 function createCodeParticle() {
-    const codeParticles = document.querySelector('.code-particles');
-    const codeSymbols = [
-        '{ code }', 
-        '<div>', 
-        'function()', 
-        'if (true) {}', 
-        '// comment', 
-        'const x = 10;', 
-        'return data;',
-        'async await',
-        'import React',
-        '[1, 2, 3]'
-    ];
-    
-    const particle = document.createElement('span');
-    particle.className = 'code-particle';
-    particle.textContent = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
-    
-    // Random positioning
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    
-    // Random size
-    particle.style.fontSize = `${Math.floor(10 + Math.random() * 8)}px`;
-    
-    // Random animation duration and delay
-    const duration = 15 + Math.random() * 20;
-    const delay = Math.random() * 10;
-    
-    particle.style.animationDuration = `${duration}s`;
-    particle.style.animationDelay = `${delay}s`;
-    
-    codeParticles.appendChild(particle);
-    
-    // Remove after animation completes
-    setTimeout(() => {
-        particle.remove();
-    }, (duration + delay) * 1000);
+  const codeParticles = document.querySelector('.code-particles');
+  const codeSymbols = [
+    '{ code }',
+    '// TODO',
+    'function()',
+    'if (true)',
+    '<div>',
+    '=> {}',
+    '#!/bin/sh',
+    'import *',
+    'return;',
+    'const x =',
+    '[1, 2, 3]',
+    'try/catch'
+  ];
+  
+  if (!codeParticles) return;
+  
+  const particle = document.createElement('div');
+  particle.className = 'code-particle';
+  particle.textContent = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
+  
+  // Random position
+  const left = Math.random() * 100;
+  const top = Math.random() * 100;
+  
+  particle.style.left = `${left}%`;
+  particle.style.top = `${top}%`;
+  
+  codeParticles.appendChild(particle);
+  
+  // Remove after animation completes
+  setTimeout(() => {
+    particle.remove();
+  }, 15000);
 }
 
-// Initialize animations when the document is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Check URL parameters for tab selection
-    const urlParams = new URLSearchParams(window.location.search);
-    const tab = urlParams.get('tab');
-    
-    if (tab === 'register') {
-        authTabs.forEach(t => t.classList.remove('active'));
-        document.querySelector('[data-tab="register"]').classList.add('active');
-        authForms.forEach(form => form.classList.remove('active'));
-        registerForm.classList.add('active');
-    }
-    
-    // Create initial code particles
-    const codeParticles = document.querySelector('.code-particles');
-    const codeSymbols = [
-        '{ code }', 
-        '<div>', 
-        'function()', 
-        'if (true) {}', 
-        '// comment', 
-        'const x = 10;', 
-        'return data;',
-        'async await',
-        'import React',
-        '[1, 2, 3]'
-    ];
-    
-    // Create 15 initial code particles
-    for (let i = 0; i < 15; i++) {
-        const particle = document.createElement('span');
-        particle.className = 'code-particle';
-        particle.textContent = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
-        
-        // Random positioning
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDelay = `${Math.random() * 15}s`;
-        particle.style.fontSize = `${Math.floor(10 + Math.random() * 8)}px`;
-        
-        codeParticles.appendChild(particle);
-    }
-    
-    // Create shooting stars at intervals
-    setInterval(createShootingStar, 3000);
-    
-    // Create new code particles at intervals
-    setInterval(createCodeParticle, 5000);
-    
-    // Create additional meteor shower effect occasionally
-    setInterval(() => {
-        // Create a burst of meteors
-        for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-                createShootingStar();
-            }, i * 300);
-        }
-    }, 15000);
+// Initialize animations
+document.addEventListener('DOMContentLoaded', () => {
+  // Check URL parameters to set the active tab
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get('type');
+  
+  if (type === 'register') {
+    authTabs[1].click();
+  } else {
+    authTabs[0].click();
+  }
+  
+  // Create shooting stars at intervals
+  setInterval(createShootingStar, 3000);
+  
+  // Create code particles at intervals
+  setInterval(createCodeParticle, 2000);
+  
+  // Create initial particles
+  for (let i = 0; i < 10; i++) {
+    createCodeParticle();
+  }
 });
-
-// Add additional shooting stars on mouse movement
-let mouseMoveTimeout;
-document.addEventListener('mousemove', () => {
-    clearTimeout(mouseMoveTimeout);
-    mouseMoveTimeout = setTimeout(() => {
-        createShootingStar();
-    }, 300);
-});
-
