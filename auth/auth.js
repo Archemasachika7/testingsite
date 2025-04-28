@@ -30,6 +30,7 @@ const successMessage = document.getElementById('successMessage');
 const successDoneBtn = document.getElementById('successDoneBtn');
 const loadingOverlay = document.getElementById('loadingOverlay');
 const registerPassword = document.getElementById('registerPassword');
+const rememberMe = document.getElementById('remember').checked;
 const strengthSegments = document.querySelectorAll('.strength-segment');
 const strengthText = document.querySelector('.strength-text');
 
@@ -203,6 +204,9 @@ loginForm.addEventListener('submit', async (e) => {
     
     try {
         showLoading();
+        await auth.setPersistence(rememberMe ? 
+            firebase.auth.Auth.Persistence.LOCAL : 
+            firebase.auth.Auth.Persistence.SESSION);
         await auth.signInWithEmailAndPassword(email, password);
         hideLoading();
         showSuccessModal('You have successfully logged in!');
@@ -242,6 +246,9 @@ registerForm.addEventListener('submit', async (e) => {
     
     try {
         showLoading();
+        await auth.setPersistence(rememberMe ? 
+            firebase.auth.Auth.Persistence.LOCAL : 
+            firebase.auth.Auth.Persistence.SESSION);
         const userCredential = await auth.createUserWithEmailAndPassword(email, password);
         
         // Update profile with name
@@ -262,6 +269,9 @@ async function signInWithGoogle() {
     try {
         showLoading();
         const provider = new firebase.auth.GoogleAuthProvider();
+        await auth.setPersistence(rememberMe ? 
+            firebase.auth.Auth.Persistence.LOCAL : 
+            firebase.auth.Auth.Persistence.SESSION);
         await auth.signInWithPopup(provider);
         hideLoading();
         showSuccessModal('You have successfully logged in with Google!');
@@ -279,6 +289,9 @@ async function signInWithGithub() {
     try {
         showLoading();
         const provider = new firebase.auth.GithubAuthProvider();
+        await auth.setPersistence(rememberMe ? 
+            firebase.auth.Auth.Persistence.LOCAL : 
+            firebase.auth.Auth.Persistence.SESSION);
         await auth.signInWithPopup(provider);
         hideLoading();
         showSuccessModal('You have successfully logged in with GitHub!');

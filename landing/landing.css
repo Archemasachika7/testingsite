@@ -364,7 +364,7 @@ nav ul li a:hover::after {
   transform: rotate(0);
 }
 
-.login-btn {
+.logout-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -377,7 +377,7 @@ nav ul li a:hover::after {
   transition: var(--transition);
 }
 
-.login-btn:hover {
+.logout-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -1815,7 +1815,7 @@ body[data-theme="dark"] .feature-card:hover {
     display: block;
   }
 
-  .header-actions .login-btn {
+  .header-actions .logout-btn {
     display: none;
   }
 

@@ -1,11 +1,26 @@
+// Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCN8q1uF4Ox5drhgQLY3m-oCEt8suSlRfs", // Replace with your actual API key
+  authDomain: "ahjincc.firebaseapp.com",
+  databaseURL: "https://ahjincc-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "ahjincc",
+  storageBucket: "ahjincc.firebasestorage.app",
+  messagingSenderId: "287401404736",
+  appId: "1:287401404736:web:88fbe3b9bf4c4c20ae32a5",
+  measurementId: "G-FLKN369J4M"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 // DOM Elements
 const themeToggle = document.getElementById("theme-toggle");
 const header = document.querySelector("header");
-const loginBtn = document.getElementById("login-btn");
-const mobileLoginBtn = document.getElementById("mobile-login-btn");
+const logoutBtn = document.getElementById("logout-btn");
+const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
 const registerBtn = document.getElementById("register-btn");
 const ctaRegisterBtn = document.getElementById("cta-register-btn");
-const ctaLoginBtn = document.getElementById("cta-login-btn");
+const ctaLogoutBtn = document.getElementById("cta-logout-btn");
 const demoBtn = document.getElementById("demo-btn");
 const videoModal = document.getElementById("videoModal");
 const modalClose = document.getElementById("modal-close");
@@ -613,20 +628,37 @@ function createLiveActivityFeed() {
   }, 5000);
 }
 
-// Auth Redirects
-function redirectToAuth(tab) {
-  window.location.href = `auth.html?tab=${tab}`;
+// Logout function
+function handleLogout() {
+  firebase.auth().signOut().then(() => {
+      setTimeout(() => {
+          window.location.href = '../index.html';
+      }, 500);
+  }).catch((error) => {
+      console.error('Logout error:', error);
+  });
 }
 
-if (loginBtn) loginBtn.addEventListener("click", () => redirectToAuth("login"));
-if (mobileLoginBtn)
-  mobileLoginBtn.addEventListener("click", () => redirectToAuth("login"));
+document.addEventListener('DOMContentLoaded', () => {
+    firebase.auth().onAuthStateChanged(user => {
+        if (!user) {
+            window.location.href = '../index.html';
+        } else {
+            document.body.classList.add('authenticated');
+            if (user.displayName) {
+                document.querySelector('.user-name').textContent = user.displayName;
+            }
+        }
+    });
+});
+
+if (logoutBtn) logoutBtn.addEventListener("click", () => handleLogout());
+if (mobileLogoutBtn)
+  mobileLogoutBtn.addEventListener("click", () => handleLogout());
 if (registerBtn)
-  registerBtn.addEventListener("click", () => redirectToAuth("register"));
-if (ctaRegisterBtn)
-  ctaRegisterBtn.addEventListener("click", () => redirectToAuth("register"));
-if (ctaLoginBtn)
-  ctaLoginBtn.addEventListener("click", () => redirectToAuth("login"));
+  registerBtn.addEventListener("click", () => handleLogout());
+if (ctaLogoutBtn)
+  ctaLogoutBtn.addEventListener("click", () => handleLogout());
 
 // Newsletter form submission
 const newsletterForm = document.querySelector(".newsletter-form");

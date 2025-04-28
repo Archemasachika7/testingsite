@@ -1,3 +1,18 @@
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCN8q1uF4Ox5drhgQLY3m-oCEt8suSlRfs", // Replace with your actual API key
+    authDomain: "ahjincc.firebaseapp.com",
+    databaseURL: "https://ahjincc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ahjincc",
+    storageBucket: "ahjincc.firebasestorage.app",
+    messagingSenderId: "287401404736",
+    appId: "1:287401404736:web:88fbe3b9bf4c4c20ae32a5",
+    measurementId: "G-FLKN369J4M"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 // DOM Elements
 const themeToggle = document.getElementById('theme-toggle');
 const parallaxBg = document.getElementById('parallax-bg');
@@ -168,20 +183,11 @@ animateElements.forEach((element, index) => {
     element.style.transitionDelay = `${delay}ms`;
 });
 
-// Add this to your main page script.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if user is authenticated
-    firebase.auth().onAuthStateChanged(user => {
-        if (!user) {
-            // User is not authenticated, redirect to landing page
-            window.location.href = 'landing.html';
-        } else {
-            // User is authenticated, show content
-            document.body.classList.add('authenticated');
-            // You can also update UI with user info
-            if (user.displayName) {
-                document.querySelector('.user-name').textContent = user.displayName;
-            }
+// Check User Session active or not
+document.addEventListener("DOMContentLoaded", function () {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            window.location.href = 'landing/landing.html';
         }
     });
 });
@@ -302,7 +308,7 @@ const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         firebase.auth().signOut().then(() => {
-            window.location.href = 'landing.html';
+            window.location.href = '../index.html';
         }).catch(error => {
             console.error('Logout error:', error);
         });
