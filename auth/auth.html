@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - Ahjin Code Conclave</title>
+    <title>Authentication - Martian Civils</title>
     <link rel="stylesheet" href="auth.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" href="../assets/icons/ahjin.ico" type="image/x-icon">
+    <link rel="icon" href="assets/icons/mars-icon.ico" type="image/x-icon">
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
 </head>
 <body>
-    <div class="code-particles"></div>
+    <div class="mars-background"></div>
+    <div class="phobos"></div>
+    <div class="deimos"></div>
     <div class="stars"></div>
-    <div class="particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
+    <div class="dust-particles"></div>
     
     <div class="auth-container">
         <div class="auth-card">
@@ -35,7 +29,8 @@
                     <i class="fas fa-arrow-left"></i>
                 </button>
                 <div class="logo">
-                    <h1>Ahjin<span class="gradient-text">CodeConclave</span></h1>
+                    <h1>Martian<span class="gradient-text">Civils</span></h1>
+                    <p class="subtitle">JU Civil Section A</p>
                 </div>
                 <button id="theme-toggle" class="theme-toggle">
                     <i class="fas fa-sun sun-icon"></i>
@@ -44,14 +39,15 @@
             </div>
             
             <div class="auth-tabs">
-                <button class="auth-tab active" data-tab="login">Login</button>
-                <button class="auth-tab" data-tab="register">Register</button>
+                <button class="auth-tab active" data-tab="login" onclick="switchTab('login')">Login</button>
+                <button class="auth-tab" data-tab="register" onclick="switchTab('register')">Register</button>
             </div>
             
             <div class="auth-content">
                 <form id="loginForm" class="auth-form active">
-                    <h2>Sign in to continue </h2>
+                    <h2>Sign in to Mars Base</h2>
                     <p class="auth-subtitle">Enter your credentials to access your account</p>
+                    
                     <div class="form-group">
                         <label for="loginEmail">Email</label>
                         <div class="input-with-icon">
@@ -80,8 +76,8 @@
                     </div>
                     
                     <button type="submit" class="primary-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Login
+                        <i class="fas fa-rocket"></i>
+                        Launch
                     </button>
                     
                     <div class="divider">
@@ -101,14 +97,22 @@
                 </form>
                 
                 <form id="registerForm" class="auth-form">
-                    <h2>Join Our Community</h2>
-                    <p class="auth-subtitle">Create your account to start coding challenges</p>
+                    <h2>Join Mars Colony</h2>
+                    <p class="auth-subtitle">Create your account to access Civil A resources</p>
                     
                     <div class="form-group">
                         <label for="registerName">Full Name</label>
                         <div class="input-with-icon">
                             <span class="material-icons">person</span>
                             <input type="text" id="registerName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerRoll">Roll Number</label>
+                        <div class="input-with-icon">
+                            <span class="material-icons">badge</span>
+                            <input type="text" id="registerRoll" required>
                         </div>
                     </div>
                     
@@ -158,8 +162,8 @@
                     </div>
                     
                     <button type="submit" class="primary-btn">
-                        <i class="fas fa-user-plus"></i>
-                        Create Account
+                        <i class="fas fa-user-astronaut"></i>
+                        Join Colony
                     </button>
                     
                     <div class="divider">
@@ -190,8 +194,8 @@
             <h2>Success!</h2>
             <p id="successMessage">You have successfully authenticated.</p>
             <button id="successDoneBtn" class="primary-btn">
-                <i class="fas fa-arrow-right"></i>
-                Continue to Platform
+                <i class="fas fa-rocket"></i>
+                Enter Mars Base
             </button>
         </div>
     </div>
